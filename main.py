@@ -59,12 +59,12 @@ async def get_balance(wallet: str):
 
         collection.insert_one({
             "wallet": Web3.to_checksum_address(wallet),
-            "total_balance": token_balance * usd_value,
+            "total_usd_balance": token_balance * usd_value,
             "crv_balance": token_balance,
-            "current_timestamp":datetime.now().isoformat()
+            "current_timestamp":datetime.datetime.now().isoformat()
         })
 
-        return {"message": "Saved Succesffully"}
+        return {"message": " Succesffully added" }
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
