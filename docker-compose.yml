@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: fastapi-app
+    env_file:
+      - .env
+    ports:
+      - 8000:8000
+  mongodb:
+    image: mongo
